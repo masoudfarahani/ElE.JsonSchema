@@ -18,7 +18,21 @@ npm run build
 
 Production files are generated in `dist/`. TypeScript is bundled by Vite; generated JavaScript is not kept alongside the source files.
 
-## Editor
+## GitHub Pages
+
+In the repository settings, open **Pages** and set **Source** to **GitHub Actions**.
+Commit and push the project to `develop`. The `Deploy GitHub Pages` workflow runs
+tests, builds the site, and publishes `dist/`. Its deployment summary includes
+the site URL. You can also run it manually from the Actions tab.
+
+The `github-pages` environment must allow deployments from `develop`. If you
+change the publishing branch, update `.github/workflows/deploy-pages.yml` too.
+Relative asset paths support both repository Pages sites and custom domains.
+
+Use `npm run build` followed by `npm run preview` to inspect the production build
+locally. No TypeScript source or `node_modules` needs to be uploaded to Pages.
+
+## Editor features
 
 - Add and edit properties through the same modal.
 - Available validation controls come from `ValidatorRegistry.GetValidatorsByElemType()`.

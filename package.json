@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
     "test": "tsc -p tsconfig.test.json && node --test tests/*.test.cjs",
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit"
