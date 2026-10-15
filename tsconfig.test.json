@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "outDir": ".test-build",
+    "rootDir": "src",
+    "sourceMap": false,
+    "noEmit": false,
+    "types": [],
+    "ignoreDeprecations": "6.0"
+  },
+  "include": [
+    "src/editor.ts",
+    "src/models/*.ts"
+  ]
+}

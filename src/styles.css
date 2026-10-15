@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@theme {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-soft: var(--soft);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-tint: var(--tint);
+  --font-sans: "Segoe UI", Tahoma, sans-serif;
+}
+:root { --canvas:#f7f9fc; --surface:#ffffff; --soft:#f1f5f9; --line:#e2e8f0; --ink:#25324b; --muted:#64748b; --accent:#526ac3; --tint:#e9eeff; }
+:root[data-theme="mint"] { --canvas:#f4faf7; --surface:#ffffff; --soft:#edf6f1; --line:#dcebe2; --ink:#29483d; --muted:#60796e; --accent:#327e65; --tint:#ddf4e8; }
+:root[data-theme="rose"] { --canvas:#fcf7f9; --surface:#ffffff; --soft:#faf0f4; --line:#efdee6; --ink:#523848; --muted:#8a6c7c; --accent:#b15f84; --tint:#fbe3ee; }
+@layer base {
+ body { @apply m-0 bg-canvas font-sans text-ink antialiased; }
+ button, select { @apply cursor-pointer; }
+ button, input, select { @apply transition-colors; }
+ button:focus-visible, input:focus-visible, select:focus-visible { @apply outline-2 outline-offset-2 outline-accent; }
+ button:disabled { @apply cursor-not-allowed opacity-50; }
+}
+@layer components {
+ .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-surface px-4 py-2.5 text-sm font-medium text-ink hover:bg-soft; }
+ .btn-primary { @apply border-transparent bg-tint text-accent hover:brightness-95; }
+ .btn-small { @apply rounded-lg px-2.5 py-1.5 text-xs; }
+ .field { @apply w-full rounded-xl border border-line bg-canvas px-3.5 py-2.5 text-sm text-ink placeholder:text-muted/70; }
+ .label { @apply mb-2 block text-sm font-medium; }
+ .badge { @apply inline-flex items-center gap-1.5 rounded-lg border border-line bg-soft px-2 py-1 font-mono text-xs text-muted; }
+ .panel { @apply min-w-0 rounded-2xl border border-line bg-surface; }
+}
+dialog { margin:auto; width:min(620px, calc(100vw - 32px)); max-height:calc(100dvh - 40px); padding:0; color:var(--ink); border:1px solid var(--line); border-radius:24px; background:var(--surface); box-shadow:0 24px 100px #25324b24; }
+dialog::backdrop { background:#26334b55; backdrop-filter:blur(4px); }
+.code-key { color:var(--accent); }
+.code-string { color:#38836b; }
+.code-number { color:#b16d39; }
+.tree-children { @apply ml-5 border-l border-line pl-4 sm:ml-7; }
+
